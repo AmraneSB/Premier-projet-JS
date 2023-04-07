@@ -48,13 +48,22 @@ flecheDroite.addEventListener("click", function () {
 
 const bulletPointZone = document.querySelector(".dots");
 
+
 for (var i = 0; i < slides.length; i++) {
 
 	let dot = document.createElement ("div"); //équivalent de contenu html :<div> </div>
 	dot.classList.add ("dot");//equivalent de contenu html: <div class = "dot"> </div>
 	dot.id = "dot" + i ;
-	bulletPointZone.appendChild (dot);
+	bulletPointZone.appendChild (dot);//rajout de dot dans le contenu html 
+
+	
+  	console.log(i);
+const whitePoint = document.getElementById("dot0");
 
 
-  console.log(i);
+	whitePoint.classList.add ("dot_selected");
+
 }
+
+
+	 
