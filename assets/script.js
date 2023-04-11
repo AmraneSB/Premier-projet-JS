@@ -18,33 +18,8 @@ const slides = [
 ]
 
 
-const flecheGauche = document.querySelector(".arrow_left");
 
-flecheGauche.addEventListener("click", function () {
- 
-
-
-
-
-   console.log("clique fleche de droite")
-});
-
-
-
-
-const flecheDroite = document.querySelector(".arrow_right");
-
-flecheDroite.addEventListener("click", function () {
-
-
-
-
-
-    
-   console.log("clique fleche de droite")
-});
-
-
+var z = 0;
 
 const bulletPointZone = document.querySelector(".dots");
 
@@ -58,12 +33,102 @@ for (var i = 0; i < slides.length; i++) {
 
 	
   	console.log(i);
-const whitePoint = document.getElementById("dot0");
 
 
-	whitePoint.classList.add ("dot_selected");
 
 }
 
 
-	 
+
+var whitePoint = document.getElementById("dot"+[z]);
+
+
+	whitePoint.classList.add ("dot_selected");
+
+
+
+
+const flecheDroite = document.querySelector(".arrow_right");
+
+   flecheDroite.addEventListener("click", function () {
+	 if (z < 3 ) {
+	var whitePoint = document.getElementById("dot"+[z]);
+	whitePoint.classList.remove ("dot_selected");
+	z++
+	var whitePoint = document.getElementById("dot"+[z]);
+	whitePoint.classList.add ("dot_selected");
+
+	document.querySelector(".banner-img").src = "./assets/images/slideshow/"+ slides[z].image;
+	
+	document.querySelector("p").innerHTML = "<p>"+""+"</p>";
+	document.querySelector("p").innerHTML ="<p>"+ slides[z].tagLine +"</p>";
+	
+   
+	
+
+}
+else {
+	var whitePoint = document.getElementById("dot"+[z]);
+	whitePoint.classList.remove ("dot_selected");
+	z = 0;
+	var whitePoint = document.getElementById("dot"+[z]);
+	whitePoint.classList.add ("dot_selected");
+
+	document.querySelector(".banner-img").src = "./assets/images/slideshow/"+ slides[z].image;
+	
+
+	document.querySelector("p").innerHTML = "<p>"+""+"</p>";
+	document.querySelector("p").innerHTML ="<p>"+ slides[z].tagLine +"</p>";
+}
+
+    
+   console.log("clique fleche de droite")
+});
+
+
+
+
+
+
+
+
+
+const flecheGauche = document.querySelector(".arrow_left");
+
+	flecheGauche.addEventListener("click", function () {
+ if (z > 0 ) {
+	var whitePoint = document.getElementById("dot"+[z]);
+	whitePoint.classList.remove ("dot_selected");
+	z--
+	var whitePoint = document.getElementById("dot"+[z]);
+	whitePoint.classList.add ("dot_selected");
+	
+	document.querySelector(".banner-img").src = "./assets/images/slideshow/"+ slides[z].image;
+	
+
+	document.querySelector("p").innerHTML = "<p>"+""+"</p>";
+	document.querySelector("p").innerHTML ="<p>"+ slides[z].tagLine +"</p>";
+   
+}
+else {
+	var whitePoint = document.getElementById("dot"+[z]);
+	whitePoint.classList.remove ("dot_selected");
+	z = 3 ;
+	var whitePoint = document.getElementById("dot"+[z]);
+	whitePoint.classList.add ("dot_selected");
+	
+	document.querySelector(".banner-img").src = "./assets/images/slideshow/"+ slides[z].image;
+	
+	
+	document.querySelector("p").innerHTML = "<p>"+""+"</p>";
+	document.querySelector("p").innerHTML ="<p>"+ slides[z].tagLine +"</p>";
+}
+
+
+   console.log("clique fleche de gauche")
+
+
+
+});
+
+
